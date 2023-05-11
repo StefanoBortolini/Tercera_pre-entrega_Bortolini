@@ -24,20 +24,20 @@ class Vendedor(models.Model):
         return f"{self.nombre}, {self.apellido}, {self.dni}"
 
 class Producto(models.Model):
-    nombre = models.CharField(max_length=30)
-    marca = models.CharField(max_length=20)
-    precio = models.IntegerField(max_length=7)
-    stock = models.IntegerField(max_length=4)
+    nombre  = models.CharField(max_length=30)
+    marca   = models.CharField(max_length=20)
+    precio  = models.IntegerField()
+    stock   = models.IntegerField()
 
     def __str__(self):
         return f"{self.nombre}, {self.marca}, {self.precio}, {self.stock}"
 
 class Venta(models.Model):
-    username  = models.ForeignKey(Vendedor)
-    cliente   = models.ForeignKey(Cliente)
-    producto  = models.CharField(max_length=50)
-    cantidad  = models.IntegerField(max_length=2)
-    preciotot = models.IntegerField(max_length=9)
+    username  = models.ForeignKey(Vendedor, on_delete=models.CASCADE)
+    cliente   = models.ForeignKey(Cliente, on_delete=models.CASCADE)
+    producto  = models.ForeignKey(Producto,on_delete=models.CASCADE)
+    cantidad  = models.IntegerField()
+    preciotot = models.IntegerField()
 
     def __str__(self):
         return f"{self.username}, {self.cliente}, {self.producto}, {self.cantidad}"
