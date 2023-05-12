@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+<section>
+  <div>
+    <h1>Lista de Productos</h1>
+    <a href="{% url 'crear_producto' %}">Crear Producto</a>
+    <br><br>
+    <br>
+    <table class="table">
+      <tbody>
+        <tr>
+          <th>id</th>
+          <th>Nombre</th>
+          <th>Marca</th>
+          <th>Precio</th>
+          <th>Stock</th>
+        </tr>
+        {% for producto in object_list %}
+        <tr>
+          <td>{{ producto.id }}</td>
+          <td>{{ producto.nombre }}</td>
+          <td>{{ producto.marca }}</td>
+          <td>{{ producto.precio }}</td>
+          <td>{{ producto.stock }}</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>
+            <a href="{% url 'ver_producto' producto.id %}">Ver</a>
+          </td>
+          <td>
+            <a href="{% url 'editar_producto' producto.id %}">Editar</a>
+          </td>
+          <td>
+            <a href="{% url 'eliminar_producto' producto.id %}">
+              <i class="bi bi-trash"></i>
+            </a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+  </div>
+</section>
+{% endblock contenido %}

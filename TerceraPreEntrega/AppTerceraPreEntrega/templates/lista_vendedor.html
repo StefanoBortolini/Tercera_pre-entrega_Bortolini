@@ -1,40 +1,47 @@
-{% extends "control_estudios/base.html" %}
+{% extends "base.html" %}
 
 {% block contenido %}
 <section>
   <div>
-    <h1>Lista de cursos</h1>
-    <a href="{% url 'crear_curso' %}">Crear curso</a>
+    <h1>Lista de Vendedores</h1>
+    <a href="{% url 'crear_vendedor' %}">
+      <i class="bi bi-person-plus-fill fa-3x"></i>
+    </a>
     <br><br>
-    <form action="{% url 'buscar_cursos' %}" method="post">
-      {% csrf_token %}
-      <input type="text" name="busqueda">
-      <input type="submit" value="Buscar por comision">
-    </form>
     <br>
-
     <table class="table">
       <tbody>
         <tr>
-          <th>ID</th>
+          <th>id</th>
           <th>Nombre</th>
-          <th>Comision</th>
-          <th>Editar</th>
-          <th>Eliminar</th>
+          <th>Apellido</th>
+          <th>Email</th>
+          <th>Telefono</th>
+          <th>Dni</th>
         </tr>
-        {% for curso in cursos %}
+        {% for vendedor in object_list %}
         <tr>
-          <td>{{ curso.id }}</td>
-          <td>{{ curso.nombre }}</td>
-          <td>{{ curso.comision }}</td>
+          <td>{{ vendedor.id }}</td>
+          <td>{{ vendedor.username }}</td>
+          <td>{{ vendedor.nombre }}</td>
+          <td>{{ vendedor.apellido }}</td>
+          <td>{{ vendedor.email }}</td>
+          <td>{{ vendedor.telefono }}</td>
+          <td>{{ vendedor.dni }}</td>
+          <td>{{ vendedor.fcha_nacimiento }}</td>
+          <td></td>
+          <td></td>
+          <td></td>
           <td>
-            <a href="{% url 'editar_curso' curso.id %}">Editar</a>
+            <a href="{% url 'ver_vendedor' vendedor.id %}">Ver</a>
           </td>
           <td>
-            <form action="{% url 'eliminar_curso' curso.id %}" method="post">
-              {% csrf_token %}
-              <input type="submit" value="eliminar"/>
-            </form
+            <a href="{% url 'editar_vendedor' vendedor.id %}">Editar</a>
+          </td>
+          <td>
+            <a href="{% url 'eliminar_vendedor' vendedor.id %}">
+              <i class="bi bi-trash"></i>
+            </a>
           </td>
         </tr>
         {% endfor %}

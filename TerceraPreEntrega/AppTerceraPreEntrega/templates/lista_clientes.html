@@ -2,9 +2,11 @@
 
 {% block contenido %}
 <section>
-  <div>
+  <div >
     <h1>Lista de Clientes</h1>
-    <a href="{% url 'crear_cliente' %}">Crear cliente</a>
+    <a href="{% url 'crear_cliente' %}">
+      <i class="bi bi-person-plus-fill"></i>
+    </a>
     <br><br>
     <br>
     <table class="table">

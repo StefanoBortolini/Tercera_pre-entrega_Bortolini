@@ -19,9 +19,14 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class='container'>
+                <center>
                 <a class="navbar-brand" href="{% url 'lista_clientes' %}">Clientes</a>
+                <a class="navbar-brand" href="{% url 'lista_vendedor' %}">Vendedores</a>
+                <a class="navbar-brand" href="{% url 'lista_producto' %}">Producto</a>
+                </center>
             </div>
         </nav>
+        
         <section style="padding:4rem 3rem;">
             {% block contenido %}
             {% endblock contenido %}

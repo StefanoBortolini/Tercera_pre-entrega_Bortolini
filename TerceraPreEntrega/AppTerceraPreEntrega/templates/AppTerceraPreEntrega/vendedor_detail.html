@@ -4,6 +4,9 @@
 <center>
   <div style='text-align:left'>
     <p>
+      <strong>Username:</strong> {{object.username}}
+    </p>
+    <p>
       <strong>Nombre:</strong> {{object.nombre}}
     </p>
     <p>
@@ -16,11 +19,14 @@
       <strong>Telefono:</strong> {{object.telefono}}
     </p>
     <p>
-      <strong>Dni:</strong> {{object.dni}}
+    <strong>DNI:</strong> {{object.dni}}
+    </p>
+    <p>
+    <strong>Fecha Nacimiento:</strong> {{object.fcha_nacimiento}}
     </p>
   </div>
 </center>
 <br>
-<a href="{% url 'lista_clientes' %}">Volver lista</a>
+<a href="{% url 'lista_vendedor' %}">Volver lista</a>
 
 {% endblock contenido %}

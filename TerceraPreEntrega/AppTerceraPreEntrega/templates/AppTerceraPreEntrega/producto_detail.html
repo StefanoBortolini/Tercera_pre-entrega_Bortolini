@@ -7,20 +7,20 @@
       <strong>Nombre:</strong> {{object.nombre}}
     </p>
     <p>
-      <strong>Apellido:</strong> {{object.apellido}}
+      <strong>Marca:</strong> {{object.marca}}
     </p>
     <p>
-      <strong>Email:</strong> {{object.email}}
+      <strong>Precio:</strong> {{object.precio}}
+    </p>
+    <p>
+      <strong>Stock:</strong> {{object.stock}}
     </p>
     <p>
       <strong>Telefono:</strong> {{object.telefono}}
     </p>
-    <p>
-      <strong>Dni:</strong> {{object.dni}}
-    </p>
   </div>
 </center>
 <br>
-<a href="{% url 'lista_clientes' %}">Volver lista</a>
+<a href="{% url 'lista_producto' %}">Volver lista</a>
 
 {% endblock contenido %}
