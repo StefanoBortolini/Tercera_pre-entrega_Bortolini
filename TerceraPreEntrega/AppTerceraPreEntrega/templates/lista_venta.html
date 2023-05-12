@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+<section>
+  <div>
+    <h1>Lista de Ventas</h1>
+    <a href="{% url 'crear_venta' %}">Agregar Venta
+        <i class="bi bi-file-earmark-plus-fill"></i>
+    </a>
+    <br><br>
+    <br>
+    <table class="table">
+      <tbody>
+        <tr>
+          <th>id</th>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Email</th>
+          <th>Telefono</th>
+          <th>Dni</th>
+        </tr>
+        {% for venta in object_list %}
+        <tr>
+          <td>{{ venta.id }}</td>
+          <td>{{ venta.username }}</td>
+          <td>{{ venta.cliente }}</td>
+          <td>{{ venta.producto }}</td>
+          <td>{{ venta.cantidad }}</td>
+          <td>{{ venta.preciotot }}</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>
+            <a href="{% url 'ver_venta' venta.id %}">Ver</a>
+          </td>
+          <td>
+            <a href="{% url 'eliminar_venta' venta.id %}">
+              <i class="bi bi-trash"></i>
+            </a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+  </div>
+</section>
+{% endblock contenido %}

@@ -2,9 +2,29 @@ from django.shortcuts import render, redirect
 from django.urls import reverse, reverse_lazy
 from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
 
-
-from AppTerceraPreEntrega.forms import ClienteFormulario
 from AppTerceraPreEntrega.models import Cliente, Vendedor, Producto, Venta
+
+def busquedaVenta(request):
+
+    return render(request, "")
+
+def buscar(request):
+    respuesta = f"La venta solicitada es:"
+
+def buscar_vendedor(request):
+    if request.method == "POST":
+        data = request.POST
+        busqueda = data["busqueda"]
+        resultado = Vendedor.objects.filter(username__contains=busqueda)
+        contexto = {
+            "object_list": resultado,
+        }
+        http_response = render(
+            request=request,
+            template_name='lista_vendedor.html',
+            context=contexto,
+        )
+        return http_response
 
 ##--------------------------------------------
 ##--------------Views Cliente##---------------
@@ -91,3 +111,24 @@ class ProductoUpdateView(UpdateView):
 class ProductoDeleteView(DeleteView):
     model = Producto
     success_url = reverse_lazy('lista_producto')
+
+##--------------------------------------------
+##--------------Views Vendedor##--------------
+##--------------------------------------------
+class VentaListView(ListView):
+    model = Venta
+    template_name = 'lista_venta.html'
+    
+class VentaCreateView(CreateView):
+    model = Venta
+    fields = ('username', 'cliente', 'producto', 'cantidad', 'preciotot')
+    success_url = reverse_lazy('lista_venta')
+
+
+class VentaDetailView(DetailView):
+    model = Venta
+    success_url = reverse_lazy('lista_venta')
+
+class VentaDeleteView(DeleteView):
+    model = Venta
+    success_url = reverse_lazy('lista_venta')

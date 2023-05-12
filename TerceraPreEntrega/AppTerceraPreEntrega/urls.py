@@ -16,10 +16,17 @@ urlpatterns = [
     path('vendedor_form/', VendedorCreateView.as_view(), name="crear_vendedor"),
     path('editar-vendedor/<int:pk>/', VendedorUpdateView.as_view(), name="editar_vendedor"),
     path('eliminar-vendedor/<int:pk>/', VendedorDeleteView.as_view(), name="eliminar_vendedor"),
+    path("buscar-vendedor/", buscar_vendedor, name="buscar_vendedor"),
     #Url Producto
     path('producto/', ProductoListView.as_view(), name='lista_producto'),
     path('producto/<int:pk>/', ProductoDetailView.as_view(), name="ver_producto"),
     path('producto_form/', ProductoCreateView.as_view(), name="crear_producto"),
     path('editar-producto/<int:pk>/', ProductoUpdateView.as_view(), name="editar_producto"),
     path('eliminar-producto/<int:pk>/', ProductoDeleteView.as_view(), name="eliminar_producto"),
+    #Url Venta
+    path('venta/', VentaListView.as_view(), name='lista_venta'),
+    path('venta/<int:pk>/', VentaDetailView.as_view(), name="ver_venta"),
+    path('venta_form/', VentaCreateView.as_view(), name="crear_venta"),
+    path('eliminar-venta/<int:pk>/', VentaDeleteView.as_view(), name="eliminar_venta"),
+
 ]
